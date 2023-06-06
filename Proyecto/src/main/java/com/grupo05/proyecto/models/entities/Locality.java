@@ -39,11 +39,21 @@ public class Locality {
 	@Column(name = "capacity")
 	private Short capacity;
 	
+	// relación N-1 con la tabla "event"
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_event")
 	private Event event;
 	
+	// relación 1-N con la tabla "ticket"
 	@OneToMany(mappedBy = "locality", fetch = FetchType.LAZY)
 	@JsonIgnore
 	private List<Ticket> tickets;
+	
+	public Locality(String name, Float price, Short capacity, Event event) {
+		super();
+		this.name = name;
+		this.price = price;
+		this.capacity = capacity;
+		this.event = event;
+	}
 }

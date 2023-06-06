@@ -22,7 +22,7 @@ import lombok.ToString;
 
 @Data
 @NoArgsConstructor
-@ToString(exclude = {"localities"})
+@ToString(exclude = {"localities", "eventEntitiesInvolved", "eventSponsors", "eventDesignatedEmployees"})
 @Entity
 @Table(name = "event")
 public class Event {
@@ -46,15 +46,44 @@ public class Event {
 	@Column(name = "is_active")
 	private Boolean isActive;
 	
+	// relación N-1 con la tabla "place"
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_place")
 	private Place place;
 	
+	// relación N-1 con la tabla "category"
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_category")
 	private Category category;
 	
+	// relación 1-N con la tabla "locality"
 	@OneToMany(mappedBy = "event", fetch = FetchType.LAZY)
 	@JsonIgnore
 	private List<Locality> localities;
+	
+	// relación N-N con la tabla "entity_involved"
+	@OneToMany(mappedBy = "event", fetch = FetchType.LAZY)
+	@JsonIgnore
+	private List<EventEntityInvolved> eventEntitiesInvolved;
+	
+	// relación N-N con la tabla "sponsor"
+	@OneToMany(mappedBy = "event", fetch = FetchType.LAZY)
+	@JsonIgnore
+	private List<EventSponsor> eventSponsors;
+	
+	// relación N-N con la tabla "user"
+	@OneToMany(mappedBy = "event", fetch = FetchType.LAZY)
+	@JsonIgnore
+	private List<EventDesignatedEmployee> eventDesignatedEmployees;
+	
+	public Event(String title, String image, Date date, String duration, Boolean isActive, Place place, Category category) {
+		super();
+		this.title = title;
+		this.image = image;
+		this.date = date;
+		this.duration = duration;
+		this.isActive = isActive;
+		this.place = place;
+		this.category = category;
+	}
 }

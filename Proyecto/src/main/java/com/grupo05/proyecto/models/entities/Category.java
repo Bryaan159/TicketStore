@@ -27,7 +27,14 @@ public class Category {
 	@Column(name = "name")
 	private String name;
 	
+	// relación 1-N con la tabla "event"
 	@OneToMany(mappedBy = "category", fetch = FetchType.LAZY)
 	@JsonIgnore
 	private List<Event> events;
+	
+	public Category(String idCategory, String name) {
+		super();
+		this.idCategory = idCategory;
+		this.name = name;
+	}
 }
