@@ -28,6 +28,10 @@ function Validate() {
     const scanner = new Html5QrcodeScanner(
       'reader',
       {
+        qrbox:{
+          width: 450,
+          height: 450
+        },
         fps: 5,
       },
       true
