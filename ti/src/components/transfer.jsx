@@ -5,6 +5,9 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faCartArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { Line, Circle } from 'rc-progress';
+import { SelectTicket } from './content/selectTicket';
+import './transfer.css';
 
 function Transfer(){
     // Definicion de variables para Header y menu lateral
@@ -88,6 +91,28 @@ function Transfer(){
                     </ul>
                 </div>
             )}
+            <main className="transferMain">
+                <div className="transferConteiner">
+                    <div className="stepTransfer">
+                        <Line percent={30} strokeWidth={1} trailWidth={1} strokeLinecap={'round'} strokeColor="#BF7026" className="lineProgressBar" />
+                        <h2>Ticket transfer</h2>
+                    </div>   
+                    <div className="sidebar">
+                        <div className="Steps">
+                            <span className="name">Select the tickets</span>
+                        </div>
+                        <div className="Steps">
+                            <span className="name">Select the user to transfer</span>
+                        </div>
+                        <div className="Steps">
+                            <span className="name">Confirm the transfer</span>
+                        </div>
+                    </div>
+                    <div className="formTransfer">
+                        < SelectTicket />
+                    </div>
+                </div>
+            </main>
         </div>
     </>)
 }
