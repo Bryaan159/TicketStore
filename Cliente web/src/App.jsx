@@ -8,6 +8,8 @@ import Search from './components/search';
 import Statistics from './components/statistics';
 import Transfer from './components/transfer';
 import Validate from './components/validate';
+import Artistic from './components/artistic';
+import Cultural from './components/cultural';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 
@@ -20,6 +22,8 @@ function App() {
         <Route path="/home" element={<Home user={user} setUser={setUser} />} />
         <Route path="/event" element={ < SaveEvent />} />
         <Route path="/event-tickets" element={ < TicketEvent />} />
+        <Route path="/artistic" element={ < Artistic />} />
+        <Route path='/cultural' element={<Cultural/>}/>
         <Route path="/search" element={ < Search />} />
         <Route path="/statistics" element={ <Statistics /> } />
         <Route path="/transfer" element={ <Transfer /> } />

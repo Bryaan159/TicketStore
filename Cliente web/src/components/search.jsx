@@ -10,7 +10,7 @@ import "./search.css"
 
 function Search() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [activeOption, setActiveOption] = useState('all');
+  const [activeOption, setActiveOption] = useState('searchI');
   const [cards, setCards] = useState(dataCard);
 
   const handleOptionHover = (option) => {
@@ -65,7 +65,7 @@ function Search() {
               className={`artistic ${activeOption === 'artistic' ? 'active' : ''}`}
               onMouseEnter={() => handleOptionHover('artistic')}
             >
-              <a href="#">Artistic</a>
+              <Link to="/artistic">Artistic</Link>
             </li>
             <li
               className={`searchI ${activeOption === 'searchI' ? 'active' : ''}`}

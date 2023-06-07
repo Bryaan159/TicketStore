@@ -111,13 +111,13 @@ function TicketEvent() {
                 className={`cultural ${activeOption === 'cultural' ? 'active' : ''}`}
                 onMouseEnter={() => handleOptionHover('cultural')}
               >
-                <a href="#">Cultural</a>
+                <Link to="/cultural">Cultural</Link>
               </li>
               <li
                 className={`artistic ${activeOption === 'artistic' ? 'active' : ''}`}
                 onMouseEnter={() => handleOptionHover('artistic')}
               >
-                <a href="#">Artistic</a>
+                <Link to="/artistic">Artistic</Link>
               </li>
               <li
                 className={`searchI ${activeOption === 'searchI' ? 'active' : ''}`}

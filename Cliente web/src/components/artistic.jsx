@@ -4,14 +4,14 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faCartArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
-import dataCard from './dataAll';
+import dataArtistic from './dataArtistic';
 import React, { useState } from 'react';
-import "./home.css"
+import "./search.css"
 
-const Home = () => {
+function Artistic() {
     const [menuOpen, setMenuOpen] = useState(false);
     const [activeOption, setActiveOption] = useState('all');
-    const [cards, setCards] = useState(dataCard);
+    const [cards, setCards] = useState(dataArtistic);
 
     const handleOptionHover = (option) => {
         setActiveOption(option);
@@ -81,7 +81,7 @@ const Home = () => {
             {menuOpen && (
                 <div className="menu-container">
                     <ul className="menu-list">
-                        <li><FontAwesomeIcon icon={faXmark} onClick={toggleMenuClose} /></li>
+                        <li><FontAwesomeIcon icon={faXmark} onClick={toggleMenuClose}  /></li>
                         <li>Dashboard</li>
                         <li>Resume</li>
                         <Link to="/transfer"><li>Transfer</li></Link>
@@ -116,4 +116,4 @@ const Home = () => {
     );
 }
 
-export default Home;
+export default Artistic

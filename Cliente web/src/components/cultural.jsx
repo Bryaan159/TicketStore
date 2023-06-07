@@ -4,14 +4,14 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faCartArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
-import dataCard from './dataAll';
+import dataCultural from './dataCultural';
 import React, { useState } from 'react';
-import "./home.css"
+import "./search.css"
 
-const Home = () => {
+function Cultural() {
     const [menuOpen, setMenuOpen] = useState(false);
-    const [activeOption, setActiveOption] = useState('all');
-    const [cards, setCards] = useState(dataCard);
+    const [activeOption, setActiveOption] = useState('cultural');
+    const [cards, setCards] = useState(dataCultural);
 
     const handleOptionHover = (option) => {
         setActiveOption(option);
@@ -23,9 +23,8 @@ const Home = () => {
     const toggleMenuClose = () => {
         setMenuOpen(false);
     }
+
     //Informacion de las cartas
-
-
     return (
         <div className='main-container'>
             {/* Aqui esta el menu de navegacion */}
@@ -116,4 +115,4 @@ const Home = () => {
     );
 }
 
-export default Home;
+export default Cultural
