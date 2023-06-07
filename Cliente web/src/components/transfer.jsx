@@ -7,12 +7,16 @@ import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { Line, Circle } from 'rc-progress';
 import { SelectTicket } from './content/selectTicket';
+import { SelectUser } from './content/selectUser';
+import { ConfirmTransfer } from './content/confirmTransfer';
 import './transfer.css';
 
 function Transfer(){
     // Definicion de variables para Header y menu lateral
     const [menuOpen, setMenuOpen] = useState(false);
     const [activeOption, setActiveOption] = useState('');
+    // Definicion de variables para manejo de transferencia
+    const [transfer, setTransfer] = useState(0);
 
     // funciones para Header y menu lateral
     const handleOptionHover = (option) => {
@@ -23,6 +27,13 @@ function Transfer(){
     }
     const toggleMenuClose = () => {
         setMenuOpen(false);
+    }
+    // Funciones para el manejo de la transferencia
+    const handleTransfer = (flow) => {
+        setTransfer(flow);
+    }
+    const handleDataTicket = (dataTicket) => {
+        console.log(dataTicket);
     }
 
     return(<>
@@ -94,23 +105,29 @@ function Transfer(){
             <main className="transferMain">
                 <div className="transferConteiner">
                     <div className="stepTransfer">
-                        <Line percent={30} strokeWidth={1} trailWidth={1} strokeLinecap={'round'} strokeColor="#BF7026" className="lineProgressBar" />
+                        <Line percent={transfer === 0 ? (30) : transfer === 1 ? (70) : (100)} strokeWidth={1} trailWidth={1} strokeLinecap={'round'} strokeColor="#BF7026" className="lineProgressBar" />
                         <h2>Ticket transfer</h2>
                     </div>   
                     <div className="sidebar">
-                        <div className="Steps">
-                            <span className="name">Select the tickets</span>
+                        <div className={`Steps ${transfer===0 ? 'here' : ''}`} >
+                            <span className="name" >Select the tickets</span>
                         </div>
-                        <div className="Steps">
-                            <span className="name">Select the user to transfer</span>
+                        <div className={`Steps ${transfer===1 ? 'here' : ''}`} >
+                            <span className="name" >Select the user to transfer</span>
                         </div>
-                        <div className="Steps">
-                            <span className="name">Confirm the transfer</span>
+                        <div className={`Steps ${transfer===2 ? 'here' : ''}`} >
+                            <span className="name" >Confirm the transfer</span>
                         </div>
                     </div>
                     <div className="formTransfer">
-                        < SelectTicket />
-                    </div>
+                        {transfer === 0 ? (
+                            < SelectTicket dataTicket={handleDataTicket} transferFlow={handleTransfer} />
+                        ) : transfer === 1 ? (
+                            < SelectUser dataTicket={handleDataTicket} transferFlow={handleTransfer} />
+                        ) : (
+                            < ConfirmTransfer dataTicket={handleDataTicket} transferFlow={handleTransfer} />
+                        )}
+                        </div>
                 </div>
             </main>
         </div>

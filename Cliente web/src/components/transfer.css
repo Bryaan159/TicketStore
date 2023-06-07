@@ -42,6 +42,10 @@
     padding-left: 10px;
 }
 
+.Steps.here{
+    border-left: 5px solid #BF7026;
+}
+
 .name{
     font-size: 18px;
     font-weight: bold;
@@ -69,6 +73,7 @@
     text-align: center;
     display: flex;
     flex-direction: row;
+    background-color: #ffffff;
     margin: 10px 0px;
     padding: 0 10px;
     border: solid 2px black;
@@ -157,4 +162,56 @@
 }
 .ContinueBtn:hover{
     transform: scale(1.10);
+}
+
+/* Componentes CSS para vista: selectUser */
+.selectUser{
+    width: 98%;
+    text-align: start;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    margin: 10px 0px;
+    padding: 0 10px;
+    border: solid 2px black;
+    border-radius: 5px;
+}
+
+.selectUser label{
+    font-size: 18px;
+    font-weight: bold;
+    color: #707070;
+    margin: 10px 10px;
+}
+
+.selectUser input{
+    width: 80%;
+    height: 30px;
+    background-color: #1c262f1f;
+    color: black;
+    font-weight: bold;
+    border: solid 2px black;
+    border-radius: 5px;
+    margin: 0 10px 50px;
+    padding: 0 10px;
+}
+/* Componentes CSS para vista: ConfirmTrasnfer */
+.confirmTransfer{
+    width: 98%;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    margin: 10px 0px;
+    padding: 0 10px;
+    border: solid 2px black;
+    border-radius: 5px;
+}
+
+.ticketConfirmed{
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    margin: 10px 0px;
+    padding: 0 10px;
 }
