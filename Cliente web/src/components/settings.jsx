@@ -1,41 +1,36 @@
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faCartArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
-import dataCard from './dataAll';
-import { faShuffle } from '@fortawesome/free-solid-svg-icons';
-import { faChartSimple } from '@fortawesome/free-solid-svg-icons';
-import { faQrcode } from '@fortawesome/free-solid-svg-icons';
-import { faGears } from '@fortawesome/free-solid-svg-icons';
-import { faTicketSimple } from '@fortawesome/free-solid-svg-icons';
-import React, { useState } from 'react';
-import "./home.css"
-
-const Home = () => {
+import { Menu } from 'antd';
+function Settings() {
+    // Definicion de variables para Header y menu lateral
     const [menuOpen, setMenuOpen] = useState(false);
-    const [activeOption, setActiveOption] = useState('all');
-    const [cards, setCards] = useState(dataCard);
+    const [activeOption, setActiveOption] = useState('barsI');
+    // Definicion de variables para manejo de transferencia
+    const [transfer, setTransfer] = useState(0);
 
+    // funciones para Header y menu lateral
     const handleOptionHover = (option) => {
         setActiveOption(option);
     };
-
+    //Funcion que nos permite abrir el menu lateral
     const toggleMenu = () => {
         setMenuOpen(prevMenuOpen => !prevMenuOpen);
     }
+    //Funcion que nos permite cerrar el menu lateral
     const toggleMenuClose = () => {
         setMenuOpen(false);
     }
-    //Informacion de las cartas
 
 
-    return (
-        <div className='main-container'>
-            {/* Aqui esta el menu de navegacion */}
-            <header className='header'>
-                <div className='logo'><a href="#">LOGO</a></div>
+    return (<>
+        {/* Aqui esta el menu de navegacion */}
+        <header className='header'>
+                <div className='logo'><a href="#">SETTINGS</a></div>
                 <nav className='nav'>
                     <ul className='nav-list'>
                         <li
@@ -55,6 +50,7 @@ const Home = () => {
                             onMouseEnter={() => handleOptionHover('cultural')}
                         >
                             <Link to="/cultural">Cultural</Link>
+
                         </li>
                         <li
                             className={`artistic ${activeOption === 'artistic' ? 'active' : ''}`}
@@ -88,54 +84,30 @@ const Home = () => {
                     <ul className="menu-list">
                         <li><FontAwesomeIcon icon={faXmark} onClick={toggleMenuClose} /></li>
                         <li>Dashboard</li>
-                        <Link><li>
-                            <FontAwesomeIcon icon={faTicketSimple} />
-                            Resume
-                            </li></Link>
-                        <Link to="/transfer" className='colorLink'>
-                            <li>
-                                <FontAwesomeIcon icon={faShuffle} />
-                                Transfer
-                            </li>
-                        </Link>
-                        <Link to="/statistics" className='colorLink'><li>
-                            <FontAwesomeIcon icon={faChartSimple} />
-                            Statistic
-                        </li></Link>
-                        <Link to="/validate" className='colorLink'><li>
-                            <FontAwesomeIcon icon={faQrcode} />
-                            Validate
-                        </li></Link>
-                        <Link to="/settings" className='colorLink'><li>
-                            <FontAwesomeIcon icon={faGears} />
-                            Settings
-                        </li></Link>
+                        <li>Resume</li>
+                        <Link to="/transfer"><li>Transfer</li></Link>
+                        <Link to="/statistics"><li>Statistic</li></Link>
+                        <Link to="/validate"><li>Validate</li></Link>
+                        <li>Settings</li>
                         <Link to="/"><button>LogOut</button></Link>
                     </ul>
                 </div>
             )}
+            {/* Aqui termina el menu de navegacion */}
+            {/* Aqui empieza el contenido de los settings */}
+            {/* <div>
+                <Menu>
+                    items={[
+                        {label:"Dashboard", icon: <HomeOutlined />},
+                    ]
+                    
+                    }
+                </Menu>
+            </div> */}
 
-            {/* Aqui irian las cartas de los tickets */}
-            <section className='sectionCards'>
-                <div className="container">
-                    {cards.map((card, i) => (
-                        <div key={i} className='card'>
-                            <div className='baseRectangle'></div>
-                            <img className='card-image' src={card.picture} alt="imagenAlternativa" />
-                            <div className='title'>{card.title}</div>
-                            <div className='text'>{card.text}</div>
-                            <div className='price'>{card.precio}</div>
-                            <button className='buy-btn'>Buy</button>
-
-                        </div>
-                    ))}
-                </div>
-            </section>
+    </>)
 
 
 
-        </div>
-    );
 }
-
-export default Home;
+export default Settings;
