@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { ticket } from './dataTickets';
 
-export const ConfirmTransfer = ({dataTicket, transferFlow}) => {
+export const ConfirmTransfer = ({transfer, transferFlow}) => {
     const [tickets, setTickets] = useState(ticket);
+    const [dataConfirm, setDataConfirm] = useState(transfer);
+
+    console.log(dataConfirm);
 
     // Funciones para navegacion de transferencia
     const handleBack = () => {
@@ -16,17 +19,17 @@ export const ConfirmTransfer = ({dataTicket, transferFlow}) => {
     return (<>
         <div className="confirmTransfer">
             <h3>Your(s) ticket(s): </h3>
-            {tickets.map((t, i) => (
+            {dataConfirm.dataTicket.map((t, i) => (
                 <div key={i} className='ticketConfirmed'>
-                    <div className='dataTicket'>{t.name}</div>
-                    <div className='dataTicket'>{t.description}</div>
-                    <div className='dataTicket'>{t.location}</div>
-                    <div className='dataTicket'>$ {t.price}</div>
-                    <div className='dataTicket'>tickets: {t.amount}</div>
+                    <div className='dataTicket'>{t.trasnferTi.name}</div>
+                    <div className='dataTicket'>{t.trasnferTi.description}</div>
+                    <div className='dataTicket'>{t.trasnferTi.location}</div>
+                    <div className='dataTicket'>$ {t.trasnferTi.price}</div>
+                    <div className='dataTicket'>transferring: {t.transfer}</div>
                 </div>
             ))}
-            <h3>Transfering to: </h3>
-            <p>UserName or Email to transfer</p>
+            <h3>transferring to: </h3>
+            <p>{dataConfirm.dataUser.userEmail}</p>
         </div>
         <div className="buttonsTickets">
             <button className="backBtn" onClick={handleBack}> Back </button>

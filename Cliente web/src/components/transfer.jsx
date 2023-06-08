@@ -34,8 +34,14 @@ function Transfer() {
         setTransfer(flow);
     }
     const handleDataTicket = (dataTicket) => {
-        setDataTransfer(dataTicket);
+        setDataTransfer({...DataTransfer, dataTicket: dataTicket});
         console.log(dataTicket);
+        console.log(dataTransfer);
+    }
+    const handleDataUser = (dataUser) => {
+        setDataTransfer((prevData) => ({...prevData, dataUser: dataUser}));
+        console.log(dataUser);
+        console.log(dataTransfer);
     }
 
     return (<>
@@ -126,9 +132,9 @@ function Transfer() {
                         {transfer === 0 ? (
                             < SelectTicket dataTicket={handleDataTicket} transferFlow={handleTransfer} />
                         ) : transfer === 1 ? (
-                            < SelectUser dataTicket={handleDataTicket} transferFlow={handleTransfer} />
+                            < SelectUser dataUserTransfer={handleDataUser} transferFlow={handleTransfer} />
                         ) : (
-                            < ConfirmTransfer dataTicket={handleDataTicket} transferFlow={handleTransfer} />
+                            < ConfirmTransfer transfer={dataTransfer} transferFlow={handleTransfer} />
                         )}
                     </div>
                 </div>

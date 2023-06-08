@@ -5,7 +5,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faCartArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
-import { Menu } from 'antd';
+//import { Menu } from 'antd';
 function Settings() {
     // Definicion de variables para Header y menu lateral
     const [menuOpen, setMenuOpen] = useState(false);
