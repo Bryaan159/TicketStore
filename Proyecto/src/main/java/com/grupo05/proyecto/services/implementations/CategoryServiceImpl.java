@@ -32,7 +32,7 @@ public class CategoryServiceImpl implements CategoryService {
 	@Override
 	@Transactional(rollbackOn = Exception.class)
 	public void deleteById(String id) throws Exception {
-		categoryRepository.deleteById(id);		
+		categoryRepository.deleteById(id);	
 	}
 
 	@Override
