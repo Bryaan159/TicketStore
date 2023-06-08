@@ -17,6 +17,7 @@ function Transfer() {
     const [activeOption, setActiveOption] = useState('');
     // Definicion de variables para manejo de transferencia
     const [transfer, setTransfer] = useState(0);
+    const [dataTransfer, setDataTransfer] = useState([]);
 
     // funciones para Header y menu lateral
     const handleOptionHover = (option) => {
@@ -33,6 +34,7 @@ function Transfer() {
         setTransfer(flow);
     }
     const handleDataTicket = (dataTicket) => {
+        setDataTransfer(dataTicket);
         console.log(dataTicket);
     }
 
