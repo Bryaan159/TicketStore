@@ -160,25 +160,66 @@ body {
         color: white;
     }
 }
+/*Menu lateral*/
 
 .menu-container {
-    width: 250px;
-    /* Ancho del menú lateral */
-    background-color:#1c262f;
+    width: 300px;
+    background-color: #1c262f;
     position: fixed;
     top: 0;
     right: 0;
     bottom: 0;
-}
-ul li{
-    list-style: none;
-}
-
-.content-container {
-    flex-grow: 1;
     padding: 20px;
-    /* Espacio adicional para evitar que el contenido se superponga con el menú */
-}
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 55px;
+  }
+  .colorLink{
+    color: #fff;
+  }
+  
+  .menu-list li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .menu-list li a {
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+  }
+  
+  .menu-list li a:hover {
+    color: #00bcd4;
+  }
+  
+  .menu-list li button {
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+  
+  .menu-list li button:hover {
+    color: #00bcd4;
+  }
+  
+  .menu-list li svg {
+    margin-right: 25px;
+  }
+  
 
 /*CSS de cartas*/
 .sectionCards {
