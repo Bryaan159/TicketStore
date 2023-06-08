@@ -5,6 +5,11 @@ import { faCartArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import dataCard from './dataAll';
+import { faShuffle } from '@fortawesome/free-solid-svg-icons';
+import { faChartSimple } from '@fortawesome/free-solid-svg-icons';
+import { faQrcode } from '@fortawesome/free-solid-svg-icons';
+import { faGears } from '@fortawesome/free-solid-svg-icons';
+import { faTicketSimple } from '@fortawesome/free-solid-svg-icons';
 import React, { useState } from 'react';
 import "./search.css"
 
@@ -25,11 +30,11 @@ function Search() {
   }
   //Filter para las cartas en el buscador
   const [filter, setFilter] = useState("");
-  
+
   const searchFilter = (e) => {
     setFilter(e.target.value)
   }
-  let dataSearch = dataCard.filter((item) =>{
+  let dataSearch = dataCard.filter((item) => {
     return Object.keys(item).some((key) =>
       item[key].toString().toLowerCase().includes(filter.toString().toLowerCase())
     );
@@ -59,7 +64,7 @@ function Search() {
               className={`cultural ${activeOption === 'cultural' ? 'active' : ''}`}
               onMouseEnter={() => handleOptionHover('cultural')}
             >
-              <a href="#">Cultural</a>
+               <Link to="/cultural">Cultural</Link>
             </li>
             <li
               className={`artistic ${activeOption === 'artistic' ? 'active' : ''}`}
@@ -91,28 +96,45 @@ function Search() {
       {menuOpen && (
         <div className="menu-container">
           <ul className="menu-list">
-            <li><FontAwesomeIcon icon={faXmark} onClick={toggleMenuClose} /></li>
+            <li><FontAwesomeIcon icon={faXmark} onClick={toggleMenuClose} id='closeMenu' /></li>
             <li>Dashboard</li>
-            <li>Resume</li>
-            <Link to="/transfer"><li>Transfer</li></Link>
-            <Link to="/statistics"><li>Statistic</li></Link>
-            <Link to="/validate"><li>Validate</li></Link>
-            <li>Settings</li>
-            <button><Link to="/">LogOut</Link></button>
+            <Link><li>
+              <FontAwesomeIcon icon={faTicketSimple} className='iconSize' />
+              Resume
+            </li></Link>
+            <Link to="/transfer" className='colorLink'>
+              <li>
+                <FontAwesomeIcon icon={faShuffle} className='iconSize' />
+                Transfer
+              </li>
+            </Link>
+            <Link to="/statistics" className='colorLink'><li>
+              <FontAwesomeIcon icon={faChartSimple} className='iconSize' />
+              Statistic
+            </li></Link>
+            <Link to="/validate" className='colorLink'><li>
+              <FontAwesomeIcon icon={faQrcode} className='iconSize' />
+              Validate
+            </li></Link>
+            <Link to="/settings" className='colorLink'><li>
+              <FontAwesomeIcon icon={faGears} className='iconSize' />
+              Settings
+            </li></Link>
+            <Link to="/"><button>LogOut</button></Link>
           </ul>
         </div>
       )}
       {/*Aqui iria la parte de Search */}
       <section className='sectionCards'>
-        
+
         {/*Va el buscador */}
         <div className="search-container">
           <div className="search-input">
-            <input type="text" 
-            className="inputSearch" 
-            placeholder="Search" 
-            value={filter}
-            onChange={searchFilter}
+            <input type="text"
+              className="inputSearch"
+              placeholder="Search"
+              value={filter}
+              onChange={searchFilter}
             />
             <div className="search-icon">
               <FontAwesomeIcon icon={faSearch} />

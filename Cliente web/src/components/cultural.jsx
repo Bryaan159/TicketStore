@@ -5,6 +5,11 @@ import { faCartArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import dataCultural from './dataCultural';
+import { faShuffle } from '@fortawesome/free-solid-svg-icons';
+import { faChartSimple } from '@fortawesome/free-solid-svg-icons';
+import { faQrcode } from '@fortawesome/free-solid-svg-icons';
+import { faGears } from '@fortawesome/free-solid-svg-icons';
+import { faTicketSimple } from '@fortawesome/free-solid-svg-icons';
 import React, { useState } from 'react';
 import "./search.css"
 
@@ -29,7 +34,7 @@ function Cultural() {
         <div className='main-container'>
             {/* Aqui esta el menu de navegacion */}
             <header className='header'>
-                <div className='logo'><a href="#">LOGO</a></div>
+            <div className='logo'> <Link to="/home">LOGO</Link></div>
                 <nav className='nav'>
                     <ul className='nav-list'>
                         <li
@@ -80,13 +85,30 @@ function Cultural() {
             {menuOpen && (
                 <div className="menu-container">
                     <ul className="menu-list">
-                        <li><FontAwesomeIcon icon={faXmark} onClick={toggleMenuClose} /></li>
+                        <li><FontAwesomeIcon icon={faXmark} onClick={toggleMenuClose} id='closeMenu' /></li>
                         <li>Dashboard</li>
-                        <li>Resume</li>
-                        <Link to="/transfer"><li>Transfer</li></Link>
-                        <Link to="/statistics"><li>Statistic</li></Link>
-                        <Link to="/validate"><li>Validate</li></Link>
-                        <li>Settings</li>
+                        <Link><li>
+                            <FontAwesomeIcon icon={faTicketSimple} className='iconSize' />
+                            Resume
+                        </li></Link>
+                        <Link to="/transfer" className='colorLink'>
+                            <li>
+                                <FontAwesomeIcon icon={faShuffle} className='iconSize' />
+                                Transfer
+                            </li>
+                        </Link>
+                        <Link to="/statistics" className='colorLink'><li>
+                            <FontAwesomeIcon icon={faChartSimple} className='iconSize' />
+                            Statistic
+                        </li></Link>
+                        <Link to="/validate" className='colorLink'><li>
+                            <FontAwesomeIcon icon={faQrcode} className='iconSize' />
+                            Validate
+                        </li></Link>
+                        <Link to="/settings" className='colorLink'><li>
+                            <FontAwesomeIcon icon={faGears} className='iconSize' />
+                            Settings
+                        </li></Link>
                         <Link to="/"><button>LogOut</button></Link>
                     </ul>
                 </div>

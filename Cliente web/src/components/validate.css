@@ -10,11 +10,22 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    position: relative;
+    /* Agregar posicionamiento relativo */
+    z-index: 1;
 }
 
 .scantodiscover hr {
     width: 100%;
-    margin-top: 10px;
+    margin-top: 7px;
     border: none;
     border-top: 2px solid #ffffff;
+}
+
+#html5-qrcode-button-camera-start {
+    background-color: #41e250;
+}
+
+#html5-qrcode-button-camera-stop {
+    background-color: #e24141;
 }

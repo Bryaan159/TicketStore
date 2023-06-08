@@ -7,6 +7,11 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
 import React, { useEffect, useState } from 'react';
 import { Html5QrcodeScanner } from 'html5-qrcode';
 import Swal from 'sweetalert2';
+import { faShuffle } from '@fortawesome/free-solid-svg-icons';
+import { faChartSimple } from '@fortawesome/free-solid-svg-icons';
+import { faQrcode } from '@fortawesome/free-solid-svg-icons';
+import { faGears } from '@fortawesome/free-solid-svg-icons';
+import { faTicketSimple } from '@fortawesome/free-solid-svg-icons';
 import './validate.css';
 
 function Validate() {
@@ -40,6 +45,7 @@ function Validate() {
       const scanner = new Html5QrcodeScanner(
         'reader',
         {
+
           fps: 5,
         },
         true
@@ -104,13 +110,13 @@ function Validate() {
               className={`cultural ${activeOption === 'cultural' ? 'active' : ''}`}
               onMouseEnter={() => handleOptionHover('cultural')}
             >
-              <a href="#">Cultural</a>
+               <Link to="/cultural">Cultural</Link>
             </li>
             <li
               className={`artistic ${activeOption === 'artistic' ? 'active' : ''}`}
               onMouseEnter={() => handleOptionHover('artistic')}
             >
-              <a href="#">Artistic</a>
+              <Link to="/artistic">Artistic</Link>
             </li>
             <li
               className={`searchI ${activeOption === 'searchI' ? 'active' : ''}`}
@@ -136,25 +142,36 @@ function Validate() {
       {menuOpen && (
         <div className="menu-container">
           <ul className="menu-list">
-            <li>
-              <FontAwesomeIcon icon={faXmark} onClick={toggleMenuClose} />
-            </li>
+            <li><FontAwesomeIcon icon={faXmark} onClick={toggleMenuClose} id='closeMenu' /></li>
             <li>Dashboard</li>
-            <li>Resume</li>
-            <Link to="/transfer">
-              <li>Transfer</li>
+            <Link><li>
+              <FontAwesomeIcon icon={faTicketSimple} className='iconSize' />
+              Resume
+            </li></Link>
+            <Link to="/transfer" className='colorLink'>
+              <li>
+                <FontAwesomeIcon icon={faShuffle} className='iconSize' />
+                Transfer
+              </li>
             </Link>
-            <Link to="/statistics">
-              <li>Statistic</li>
-            </Link>
-            <Link to="/validate">Validate</Link>
-            <li>Settings</li>
-            <button>
-              <Link to="/">LogOut</Link>
-            </button>
+            <Link to="/statistics" className='colorLink'><li>
+              <FontAwesomeIcon icon={faChartSimple} className='iconSize' />
+              Statistic
+            </li></Link>
+            <Link to="/validate" className='colorLink'><li>
+              <FontAwesomeIcon icon={faQrcode} className='iconSize' />
+              Validate
+            </li></Link>
+            <Link to="/settings" className='colorLink'><li>
+              <FontAwesomeIcon icon={faGears} className='iconSize' />
+              Settings
+            </li></Link>
+            <Link to="/"><button>LogOut</button></Link>
           </ul>
         </div>
       )}
+
+
       <section className="sectionValidate">
         <h1 className="scantodiscover">
           Scan to discover!
