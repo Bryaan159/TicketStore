@@ -160,10 +160,11 @@ body {
         color: white;
     }
 }
+
 /*Menu lateral*/
 
 .menu-container {
-    width: 300px;
+    width: 270px;
     background-color: #1c262f;
     position: fixed;
     top: 0;
@@ -173,54 +174,69 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
-  
-  .menu-list {
+    border: solid 2px #41e250;
+}
+
+.menu-list {
     list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
     flex-direction: column;
     gap: 35px;
-  }
-  .colorLink{
+}
+
+.colorLink{
     color: #fff;
-  }
-  
-  .menu-list li {
+}
+
+.iconSize {
+    /*Tamaño de los iconos del menu lateral*/
+    width: 25px;
+    height: 25px;
+}
+
+#closeMenu {
+    width: 35px;
+    height: 35px;
+    margin: auto;
+    padding: auto; 
+}
+
+.menu-list li {
     margin-bottom: 10px;
     display: flex;
     align-items: center;
     justify-content: space-around;
-  }
+}
   
-  .menu-list li a {
+.menu-list li a {
     color: #fff;
     text-decoration: none;
     display: flex;
     align-items: center;
-  }
-  
-  .menu-list li a:hover {
+}
+
+.menu-list li a:hover {
     color: #00bcd4;
-  }
-  
-  .menu-list li button {
+}
+
+.menu-list li button {
     background-color: transparent;
     color: #fff;
     border: none;
     padding: 0;
     cursor: pointer;
-  }
-  
-  .menu-list li button:hover {
+}
+
+.menu-list li button:hover {
     color: #00bcd4;
-  }
-  
-  .menu-list li svg {
+}
+
+.menu-list li svg {
     margin-right: 25px;
-  }
-  
+}
+
 
 /*CSS de cartas*/
 .sectionCards {
