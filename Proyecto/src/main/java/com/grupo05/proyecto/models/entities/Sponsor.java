@@ -28,7 +28,7 @@ public class Sponsor {
 	private String name;
 	
 	// relación N-N con la tabla "event"
-	@OneToMany(mappedBy = "entityInvolved", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "sponsor", fetch = FetchType.LAZY)
 	@JsonIgnore
 	private List<EventSponsor> eventSponsors;
 	

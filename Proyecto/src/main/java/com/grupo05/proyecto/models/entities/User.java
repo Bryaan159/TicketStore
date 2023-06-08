@@ -84,8 +84,8 @@ public class User {
 	@JsonIgnore
 	private List<TicketExchange> ticketsValidated;
 	
-	public User(String email) {
-		this.name = null;
+	public User(String name, String email) {
+		this.name = name;
 		this.email = email;
 		this.password = null;
 		this.isActive = false;
