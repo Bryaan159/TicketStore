@@ -15,12 +15,18 @@ import { faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import Swal from 'sweetalert2';
 import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import './changePassword.css';
-function ChangePassword() {
+const ChangePassword = ({ changePassword }) => {
     // Definicion de variables para Header y menu lateral
     const [menuOpen, setMenuOpen] = useState(false);
     const [activeOption, setActiveOption] = useState('barsI');
-    // Definicion de variables para manejo de transferencia
-    const [transfer, setTransfer] = useState(0);
+
+    //Verificar que las contraseñas en ambos parametros son iguales
+    const [newPassword, setNewPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+
+    //Funcion que nos permite ver la contraseña
+    const [showNewPassword, setShowNewPassword] = useState(false);
+    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
     // funciones para Header y menu lateral
     const handleOptionHover = (option) => {
@@ -34,12 +40,17 @@ function ChangePassword() {
     const toggleMenuClose = () => {
         setMenuOpen(false);
     }
-    //Funcion que nos permite ver la contraseña
-    const [showNewPassword, setShowNewPassword] = useState(false);
-    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
     //Notificacion para SweetAlert2
     const handleCreatePassword = () => {
+        if (newPassword !== confirmPassword) {
+            Swal.fire(
+                'Error',
+                'Passwords do not match',
+                'error'
+            );
+            return;
+        }
 
         const swalWithBootstrapButtons = Swal.mixin({
             customClass: {
@@ -51,26 +62,31 @@ function ChangePassword() {
 
         swalWithBootstrapButtons.fire({
             title: 'Are you sure?',
-            text: "You won't be able to revert this!",
+            text: "You want to change your password!",
             icon: 'warning',
             showCancelButton: true,
-            confirmButtonText: 'Yes, delete it!',
+            confirmButtonText: 'Yes, change it!',
             cancelButtonText: 'No, cancel!',
             reverseButtons: true
         }).then((result) => {
+
             if (result.isConfirmed) {
                 swalWithBootstrapButtons.fire(
-                    'Deleted!',
-                    'Your file has been deleted.',
+                    'Change your password!',
+                    'Your password was changed',
                     'success'
-                )
+                );
+                changePassword(newPassword);
+                setNewPassword('');
+                setConfirmPassword('')
+
             } else if (
                 /* Read more about handling dismissals below */
                 result.dismiss === Swal.DismissReason.cancel
             ) {
                 swalWithBootstrapButtons.fire(
                     'Cancelled',
-                    'Your imaginary file is safe :)',
+                    'Your password is safe :)',
                     'error'
                 )
             }
@@ -191,7 +207,9 @@ function ChangePassword() {
                         name="newPassword"
                         placeholder="New Password"
                         className="input"
-                        type="password"
+                        type={showNewPassword ? 'text' : 'password'}
+                        value={newPassword}
+                        onChange={(e) => setNewPassword(e.target.value)}
                     />
                     <FontAwesomeIcon
                         icon={showNewPassword ? faEye : faEyeSlash}
@@ -206,7 +224,11 @@ function ChangePassword() {
                         name="confirmPassword"
                         placeholder="Confirm Password"
                         className="input"
-                        type="password"
+                        type={showConfirmPassword ? 'text' : 'password'}
+                        value={confirmPassword}
+                        onChange={(e) => setConfirmPassword(e.target.value)}
+
+
                     />
                     <FontAwesomeIcon
                         icon={showConfirmPassword ? faEye : faEyeSlash}

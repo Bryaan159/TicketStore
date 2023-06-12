@@ -11,7 +11,6 @@ function Login() {
 
   const handleLogin = (userEmail) =>{
     setUser(userEmail);
-    //navigate('/home');
   }
   
   return (

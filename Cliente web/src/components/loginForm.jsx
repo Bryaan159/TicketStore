@@ -1,7 +1,7 @@
 import "./loginForm.css";
 import React, { useState } from "react";
 //toast
-import {ToastContainer, toast} from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 
 const notifyBad = () => {
@@ -10,11 +10,13 @@ const notifyBad = () => {
         autoClose: 5000
     });
 };
-const notifyGood = () => { 
+const notifyGood = () => {
     toast.success('Bienvenido', {
         position: toast.POSITION.TOP_RIGHT
     });
 };
+
+
 
 const LoginForm = ({ setUser }) => {
     // Declarar las constantes para nuestro login
@@ -23,20 +25,32 @@ const LoginForm = ({ setUser }) => {
     // Administrar los errores
     const [error, setError] = useState(false);
 
+    //Variables para poder cambiarlo las contarseñas
+    const [correctPassword, setCorrectPassword] = useState("123abc");
+
+    // Variable de estado para controlar si el usuario ha iniciado sesión correctamente
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (userEmail === "abc123" && password === "123abc") {
+        if (userEmail === "abc123" && (password === correctPassword || password === newPassword)) {
             notifyGood()
             setError(false);
-            setUser([userEmail]);
-            
+            setUser(userEmail);
+            setIsLoggedIn(true);
+
         } else {
             // Como se encuentran los parámetros vacíos, no permite el ingreso
             setError(true)
             notifyBad()
-            
+
         }
     };
+
+    //Cambio de contraseña
+    const changePassword = (newPassword) => {
+        setCorrectPassword(newPassword);
+    }
 
     return (
         <section>
@@ -58,6 +72,7 @@ const LoginForm = ({ setUser }) => {
                         placeholder="Password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
+                        changePassword={changePassword} correctPassword={correctPassword}
                     />
                 </div>
                 {/* Toda la parte de botones */}
@@ -74,6 +89,8 @@ const LoginForm = ({ setUser }) => {
                 </div>
             </form>
         </section>
+
+
     );
 };
 
