@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
+.rectangle44 {
+    position: absolute;
+    background-color: white;
+    border-radius: 20px;
+    width: 810px;
+    height: 550px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    top: 52%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.button-container {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.group187 .description {
+    text-align: center;
+}
+
+.button-container button {
+    padding: 10px 20px;
+    margin-right: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+    align-self: flex-start;
+    margin-left: 180px;
+}
+#btnChange {
+    margin-top: -90px; /* Ajusta el valor según sea necesario */
+    margin-left: -375px;
+}
+#btnMaintance {
+    margin-left: -594px;
+    margin-top: 70px;
+    
+}
+#btnManage{
+    margin-top: 50px;
+    margin-left: -378px;
+}
+.button-active {
+    width: 160px;
+    background-color: red;
+    color: white;
+}
+.button-active:hover{
+    transform: scale(1.10);
+}
+.button {
+    background-color:white;
+    color: black;
+
+    
+}
+.letra{
+    color: black;
+}
+.button:hover {
+    transform: scale(1.10);
+}
+
+
+.group187 {
+    width: 1306px;
+    height: 279px;
+}
+
+
+.group186 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.mydetails {
+    color: #000000;
+    text-align: right;
+    vertical-align: middle;
+    font-size: 25px;
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+    line-height: normal;
+    border-style: none;
+    margin-left: 265px;
+    margin-top: -10px;
+}
+
+.description {
+    color: #000000;
+    font-size: 15px;
+    font-family: 'Inter', sans-serif;
+    line-height: normal;
+    margin-left: 258px;
+    margin-top: 4px;
+    width: 480px;
+}   
+
+.personalinformation {
+    color: #000000;
+    text-align: left;
+    vertical-align: middle;
+    font-size: 15px;
+    font-family: Inter;
+    line-height: normal;
+    border-style: none;
+    outline: none;
+    margin-left: 181px;
+    width: 307px;
+    text-align: left;
+}
+
+.line15 {
+    width: 800px;
+    border: 1.5px solid #000000;
+    margin-left: 250px;
+}
+
+.group186 .mydetails,
+.group186 .personalinformation {
+  text-align: center;
+}
+.iconSize1 {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    color:black
+}
+.button-container-inner {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 15px;
+    position: relative;
+    top: -125px; /* Ajusta el valor según sea necesario */
+}

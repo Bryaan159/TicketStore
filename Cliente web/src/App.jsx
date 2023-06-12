@@ -11,6 +11,8 @@ import Validate from './components/validate';
 import Artistic from './components/artistic';
 import Cultural from './components/cultural';
 import Settings from './components/settings';
+import ChangePassoword from './components/changePassword';
+import ManagePermision from './components/managePermision';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 
@@ -30,6 +32,8 @@ function App() {
         <Route path="/transfer" element={ <Transfer /> } />
         <Route path='/settings' element={<Settings/>}/>
         <Route path="/validate" element={ <Validate/> } />
+        <Route path='/changePassword' element={<ChangePassoword/>}/>
+        <Route path='/managePermision' element={<ManagePermision/>}/>
       </Routes>
     </div>
   );

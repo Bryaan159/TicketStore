@@ -10,12 +10,12 @@ import { faChartSimple } from '@fortawesome/free-solid-svg-icons';
 import { faQrcode } from '@fortawesome/free-solid-svg-icons';
 import { faGears } from '@fortawesome/free-solid-svg-icons';
 import { faTicketSimple } from '@fortawesome/free-solid-svg-icons';
-import { faLock } from '@fortawesome/free-solid-svg-icons';
-import { faScrewdriverWrench } from '@fortawesome/free-solid-svg-icons';
-import { faListCheck } from '@fortawesome/free-solid-svg-icons';
-import "./setting.css"
-//import { Menu } from 'antd';
-function Settings() {
+import { faEye } from '@fortawesome/free-solid-svg-icons';
+import { faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import Swal from 'sweetalert2';
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
+import './changePassword.css';
+function ChangePassword() {
     // Definicion de variables para Header y menu lateral
     const [menuOpen, setMenuOpen] = useState(false);
     const [activeOption, setActiveOption] = useState('barsI');
@@ -34,12 +34,67 @@ function Settings() {
     const toggleMenuClose = () => {
         setMenuOpen(false);
     }
+    //Funcion que nos permite ver la contraseña
+    const [showNewPassword, setShowNewPassword] = useState(false);
+    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
+    //Notificacion para SweetAlert2
+    const handleCreatePassword = () => {
+
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+                confirmButton: 'btn btn-success',
+                cancelButton: 'btn btn-danger'
+            },
+            buttonsStyling: false
+        })
+
+        swalWithBootstrapButtons.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Yes, delete it!',
+            cancelButtonText: 'No, cancel!',
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+                swalWithBootstrapButtons.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
+                )
+            } else if (
+                /* Read more about handling dismissals below */
+                result.dismiss === Swal.DismissReason.cancel
+            ) {
+                swalWithBootstrapButtons.fire(
+                    'Cancelled',
+                    'Your imaginary file is safe :)',
+                    'error'
+                )
+            }
+        })
+    }
+
+    const togglePasswordVisibility = (event) => {
+        const inputField = event.target.parentNode.querySelector('input');
+        if (inputField.type === 'password') {
+            inputField.type = 'text';
+        } else {
+            inputField.type = 'password';
+        }
+        if (event.target.id === 'toggleNewPassword') {
+            setShowNewPassword(!showNewPassword);
+        } else if (event.target.id === 'toggleConfirmPassword') {
+            setShowConfirmPassword(!showConfirmPassword);
+        }
+    };
 
     return (<>
         {/* Aqui esta el menu de navegacion */}
         <header className='header'>
-        <div className='logo'> <Link to="/home">TICKETS</Link></div>
+            <div className='logo'> <Link to="/home">TICKETS</Link></div>
             <nav className='nav'>
                 <ul className='nav-list'>
                     <li
@@ -121,56 +176,51 @@ function Settings() {
         )}
         {/* Aqui termina el menu de navegacion */}
         {/* Aqui empieza el contenido de los settings */}
-        <div className="rectangle44">
-
-            {/* <h1 className='mydetails'>My account</h1>
-                <div id="line15" className="line15"></div> */}
-            <div className="group187">
-                <div id="group187" className="group187">
-                    <div className="group186">
-                        <h3 className="mydetails">
-                            My details
-                        </h3>
-                        <h4 className="personalinformation">
-                            Personal Information
-                        </h4>
-                        <div id="line15" className="line15"></div>
-                    </div>
-                    <div className="description">
-                        <p>
-                            El apartado de información detallada del usuario proporciona <br /> datos más específicos y completos acerca del usuario,
-                            y otra información personal relevante.Aquí se puede encontrar información detallada para tener un panorama completo
-                            de la identidad del usuario.
-                        </p>
-                    </div>
+        <div className="rectangle45">
+            <h1 className="titlePassword">CREATE PASSWORD</h1>
+            <div className="line14"></div>
+            <p className="description1">
+                <FontAwesomeIcon icon={faInfoCircle} className="iconSize2" />
+                Your password must be complex with alphanumeric characters.
+                Never share your password.
+            </p>
+            <form class="formPassword">
+                <label className="label1">New Password</label>
+                <div class="input-container">
+                    <input
+                        name="newPassword"
+                        placeholder="New Password"
+                        className="input"
+                        type="password"
+                    />
+                    <FontAwesomeIcon
+                        icon={showNewPassword ? faEye : faEyeSlash}
+                        className={`iconSize3 ${showNewPassword ? 'show' : 'hide'}`}
+                        id="toggleNewPassword"
+                        onClick={togglePasswordVisibility}
+                    />
                 </div>
-            </div>
-            <div className="button-container">
-                <button class="button" id='btnChange'>
-                    <Link to="/changePassword" className='letra'><FontAwesomeIcon icon={faLock} className='iconSize1' /> Change Password</Link>
-                </button>
-                <div className='button' id='btnMaintance'>
-                    <FontAwesomeIcon icon={faScrewdriverWrench} className='iconSize1' />
-                    Maintenance
-
+                <label className="label">Confirm Password</label>
+                <div class="input-container">
+                    <input
+                        name="confirmPassword"
+                        placeholder="Confirm Password"
+                        className="input"
+                        type="password"
+                    />
+                    <FontAwesomeIcon
+                        icon={showConfirmPassword ? faEye : faEyeSlash}
+                        className={`iconSize3 ${showConfirmPassword ? 'show' : 'hide'}`}
+                        id="toggleConfirmPassword"
+                        onClick={togglePasswordVisibility}
+                    />
                 </div>
-                <button class="button" id='btnManage'>
-                    <Link to="/managePermision" className='letra'><FontAwesomeIcon icon={faListCheck} className='iconSize1' /> Manage Permissions</Link>
-                </button>
-            </div>
-            <div className="button-container-inner">
-                <button class="button-active">
-                    Active
-                </button>
-            </div>
+                <button className="btnSave1" type='button' onClick={handleCreatePassword}>CREATE PASSWORD</button>
+            </form>
         </div>
-
-
 
 
     </>)
 
-
-
 }
-export default Settings;
+export default ChangePassword;
