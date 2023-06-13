@@ -1,16 +1,18 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faCartArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
+import Swal from 'sweetalert2';
 import './event.css';
 
 function TicketEvent() {
   // Variables para header y menulateral
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeOption, setActiveOption] = useState('new');
+  const navigate = useNavigate();
   // Variables para el formulario
   const [formValues, setFormValues] = useState({
     vip: false,
@@ -46,6 +48,16 @@ function TicketEvent() {
   }
   const toggleMenuClose = () => {
     setMenuOpen(false);
+  }
+  // Funcion para aplicar SweetAlert
+  const handleSweetAlert = () => {
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'Evento guardado Correctamente',
+      showConfirmButton: false,
+      timer: 1500
+    })
   }
   // funciones del formulario
   const handleCheckboxChange = (e) => {
@@ -86,6 +98,8 @@ function TicketEvent() {
     const jsonData = JSON.stringify(data, null, 2);
     // Aquí realizar la lógica para enviar el archivo JSON por API o almacenándolo localmente.
     console.log(jsonData);
+    handleSweetAlert();
+    navigate('/event');
   }
 
 
@@ -387,7 +401,7 @@ function TicketEvent() {
                 )}
               </div>
 
-              <div className="button">
+              <div className="buttonDiv">
                 <button type="submit" className='ContinueButton'>Guardar</button>
               </div>
             </div>

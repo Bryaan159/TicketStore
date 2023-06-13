@@ -177,7 +177,7 @@ function SaveEvent() {
               <label htmlFor="title"><h2>name of event</h2></label>
               <p>You must write a name of your event</p>
               <input type="text" name="title" id="title" value={formData.title}
-                onChange={handleInputChange} placeholder="TITLE" />
+                onChange={handleInputChange} placeholder="TITLE" required/>
             </div>
             <div className='date'>
               <label htmlFor="date_hour"><h2>date and hour</h2></label>
@@ -189,13 +189,13 @@ function SaveEvent() {
               <label htmlFor="duration"><h2>duration</h2></label>
               <p>You must set the duration of your event</p>
               <input type="time" name="duration" id="duration" min="00:00" max="24:00"
-                value={formData.duration} onChange={handleInputChange} />
+                value={formData.duration} onChange={handleInputChange} required/>
             </div>
             <div className='sponsor'>
               <label htmlFor="sponsor"><h2>sponsor</h2></label>
               <p>You must set a sponsor of your event</p>
               <input type="text" name="sponsor" id="sponsor" placeholder='SPONSOR'
-                value={formData.sponsor} onChange={handleInputChange} />
+                value={formData.sponsor} onChange={handleInputChange} required/>
             </div>
             <div className='category'>
               <label htmlFor="category"><h2>category</h2></label>
@@ -211,7 +211,7 @@ function SaveEvent() {
               <label htmlFor="location"><h2>location</h2></label>
               <p>You must set the location of your event</p>
               <input type="text" name="location" id="location" placeholder='PLACE'
-                value={formData.location} onChange={handleInputChange} />
+                value={formData.location} onChange={handleInputChange} required/>
             </div>
 
             <div {...getRootProps()} className={`dropzone ${isDragActive ? 'active' : ''}`} >
@@ -242,7 +242,7 @@ function SaveEvent() {
               <textarea name="description" id="description" cols="20" rows="10" placeholder='DESCRIPTION'
                 value={formData.description} onChange={handleInputChange}></textarea>
             </div>
-            <div className='button'>
+            <div className='buttonDiv'>
               <button type="submit" value="Continue" className='ContinueButton'>CONTINUE</button>
             </div>
           </div>

@@ -207,6 +207,12 @@
     border-radius: 5px;
 }
 
+.confirmTransfer #userEmail{
+    font-size: 18px;
+    font-weight: bold;
+    font-style: inherit;
+}
+
 .ticketConfirmed{
     width: 100%;
     text-align: center;

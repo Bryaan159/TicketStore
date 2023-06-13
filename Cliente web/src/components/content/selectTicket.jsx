@@ -1,11 +1,24 @@
 import { useState } from "react";
 import { ticket } from './dataTickets';
+import Swal from 'sweetalert2';
 
 export const SelectTicket = ({ dataTicket, transferFlow}) => {
     // Variables para manejo de tickets y cantidad de tickets
     const [tickets, setTickets] = useState(ticket);
     const [amount, setAmount] = useState(Array(ticket.length).fill(0));
     const [ticketsToTransfer, setTicketsToTransfer] = useState([]);
+
+    // Funciones para muestra de alerta de SweetAlert2
+    const handleAlert = () => {
+        Swal.fire({
+            position: 'top',
+            title: 'Importante',
+            text: 'Debe seleccionar al menos un ticket para continuar',
+            icon: 'warning',
+            confirmButtonText: 'Aceptar',
+            timer: 2000
+        })
+    }
     // Funciones de boton de seleccion de tickets
     const handleLessAmount = (index) => {
         if (amount[index] > 0) {
@@ -34,7 +47,7 @@ export const SelectTicket = ({ dataTicket, transferFlow}) => {
             dataTicket(ticketsToTransfer);
             transferFlow(1);
         } else {
-            alert('You must select at least one ticket to continue');
+            handleAlert();
         }
 
     }
