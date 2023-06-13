@@ -134,9 +134,9 @@ function Settings() {
                         <h4 className="personalinformation">
                             Personal Information
                         </h4>
-                        <div id="line15" className="line15"></div>
+                        <div id="line16" className="line16"></div>
                     </div>
-                    <div className="description">
+                    <div className="description3">
                         <p>
                             El apartado de información detallada del usuario proporciona <br /> datos más específicos y completos acerca del usuario,
                             y otra información personal relevante.Aquí se puede encontrar información detallada para tener un panorama completo
@@ -165,9 +165,7 @@ function Settings() {
             </div>
         </div>
 
-
-
-
+        
     </>)
 
 

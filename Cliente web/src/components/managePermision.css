@@ -1,0 +1,93 @@
+.Suppliers-container{
+    padding: 1rem;
+    color: black;
+    position: relative;
+    width: 500px;
+    align-items: center;
+}
+.rectangle46 {
+    position: absolute;
+    background-color: white;
+    border-radius: 20px;
+    width: 810px;
+    height: 550px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    top: 52%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.description2 {
+    color: #000000;
+    position: relative;
+    top: -15px;
+    margin-left: 20px;
+
+}
+.titleManage {
+    font-family: monserratRegular, sans-serif;
+    font-weight: bold;
+    color: black;
+    font-size: 25px;
+    position: relative;
+    top: -34px;
+}
+.iconSize4 {
+    color: #41E250;
+    position: relative;
+    left: -20px;
+}
+.iconSize00{
+    color: black;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    top: 1px;
+    right:355px;
+}
+.iconSize00:hover{
+    transform: scale(1.10);
+    color: #41E250;
+}
+.line15 {
+    width: 790px;
+    border: 1.5px solid #000000;
+    position: relative;
+    margin-left: 2px;
+    top: -22px;
+}
+/* Opciones de los privilegios */
+.options-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  top: 8px;
+}
+
+.form-check {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+
+}
+
+.form-check-label {
+  margin-left: 5px;
+  color: #000000;
+}
+
+.form-check-input {
+    margin-right: 5px;
+    width: 2px;
+    color: #1c262f;
+    height: 2px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    outline: none;
+    
+
+}

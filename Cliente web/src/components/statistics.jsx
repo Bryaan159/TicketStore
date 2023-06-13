@@ -48,7 +48,7 @@ function Statistics() {
             <div className='main-container'>
                 {/* Aqui esta el menu de navegacion */}
                 <header className='header'>
-                <div className='logo'> <Link to="/home">LOGO</Link></div>
+                <div className='logo'> <Link to="/home">TICKETS</Link></div>
                     <nav className='nav'>
                         <ul className='nav-list'>
                             <li

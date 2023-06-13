@@ -13,6 +13,7 @@ import { faTicketSimple } from '@fortawesome/free-solid-svg-icons';
 import { faEye } from '@fortawesome/free-solid-svg-icons';
 import { faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import Swal from 'sweetalert2';
+import { faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons';
 import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import './changePassword.css';
 const ChangePassword = ({ changePassword }) => {
@@ -193,6 +194,10 @@ const ChangePassword = ({ changePassword }) => {
         {/* Aqui termina el menu de navegacion */}
         {/* Aqui empieza el contenido de los settings */}
         <div className="rectangle45">
+
+            <Link to="/settings" className='colorLink'>
+                <FontAwesomeIcon icon={faArrowCircleLeft} className="iconSize0" />
+            </Link>
             <h1 className="titlePassword">CREATE PASSWORD</h1>
             <div className="line14"></div>
             <p className="description1">

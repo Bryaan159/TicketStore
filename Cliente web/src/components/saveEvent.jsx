@@ -85,7 +85,7 @@ function SaveEvent() {
   return (
     <>
       <header className='header'>
-      <div className='logo'> <Link to="/home">LOGO</Link></div>
+      <div className='logo'> <Link to="/home">TICKETS</Link></div>
         <nav className='nav' >
           <ul className='nav-list'>
             <li
