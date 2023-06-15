@@ -7,6 +7,7 @@
     font-family: "sProDisplay", sans-serif;
     font-weight: bold;
     font-size: 35px;
+    color: #fff;
 }
 
 body {
@@ -88,11 +89,12 @@ form>div {
     cursor: pointer;
     justify-content: center;
     font-family: 'monserratRegular', sans-serif;
-    transition: background-color 0.3s ease;
+    transition: 0.5s ease all;
 
 }
 
 .loginGoogle:hover {
+    transform: scale(1.10);
     background-color: #f2f2f2;
 }
 
@@ -109,4 +111,24 @@ form>div {
     display: flex;
     justify-content: space-between;
     width: 100%;
-  }
+}
+
+/*  
+    APARTADO RESPONSIVE PARA VISTA DE FORMULARIO
+    Tablet:  768 x 564
+    Movi: 425 x 564
+*/
+/* TABLET */
+@media screen and (max-width: 768px) {
+    .cover {
+        width: 25em;
+        height: 30em;
+    }   
+}
+/* MOVIL */
+@media screen and (max-width: 425px) {
+    .cover {
+        width: 18em;
+        height: 30em;
+    }   
+}

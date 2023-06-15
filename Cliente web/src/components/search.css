@@ -121,3 +121,15 @@
 .sectionCards {
     margin-top: 50px;
 }
+
+/*
+    APARTADO RESPONSIVE PARA VISTA HOME
+    TABLET: 768px x 564px
+    MOBILE: 425px x 564px
+*/
+
+@media screen and (max-width: 768px){
+    .container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
