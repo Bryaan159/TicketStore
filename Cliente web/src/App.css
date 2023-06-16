@@ -39,3 +39,15 @@
 .read-the-docs {
   color: #888;
 }
+
+/*
+    APARTADO RESPONSIVE PARA VISTA HOME
+    TABLET: 768px x 564px
+    MOBILE: 425px x 564px
+*/
+
+@media screen and (max-width: 768px) {
+  .card {
+    margin: 30px;
+  }
+}

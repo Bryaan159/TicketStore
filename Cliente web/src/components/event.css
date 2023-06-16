@@ -270,3 +270,15 @@ input[type="checkbox"]{
   height: 40px;
   margin: 0 10px;
 }
+
+/*
+    APARTADO RESPONSIVE PARA VISTA HOME
+    TABLET: 768px x 564px
+    MOBILE: 425px x 564px
+*/
+
+@media screen and (max-width: 768px){
+  .box-save{
+    margin: 10px 20px 10px 10px;
+  }
+}
