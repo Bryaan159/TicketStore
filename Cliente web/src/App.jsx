@@ -14,6 +14,7 @@ import Settings from './components/settings';
 import ChangePassoword from './components/changePassword';
 import ManagePermision from './components/managePermision';
 import 'react-toastify/dist/ReactToastify.css';
+import Emergency from './components/emergency';
 import './App.css';
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
         <Route path="/validate" element={ <Validate/> } />
         <Route path='/changePassword' element={<ChangePassoword/>}/>
         <Route path='/managePermision' element={<ManagePermision/>}/>
+        <Route path='/emergency' element = {<Emergency/>}/>
       </Routes>
     </div>
   );

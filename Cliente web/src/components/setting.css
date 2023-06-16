@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
+
 .rectangle44 {
     position: absolute;
     background-color: white;
@@ -39,36 +40,45 @@
     align-self: flex-start;
     margin-left: 180px;
 }
+
 #btnChange {
-    margin-top: -90px; /* Ajusta el valor según sea necesario */
+    margin-top: -90px;
+    /* Ajusta el valor según sea necesario */
     margin-left: -375px;
 }
+
 #btnMaintance {
     margin-left: -594px;
     margin-top: 70px;
-    
+
 }
-#btnManage{
+
+#btnManage {
     margin-top: 50px;
     margin-left: -378px;
 }
+
 .button-active {
     width: 160px;
     background-color: red;
     color: white;
 }
-.button-active:hover{
+
+.button-active:hover {
     transform: scale(1.10);
 }
+
 .button {
-    background-color:white;
+    background-color: white;
     color: black;
 
-    
+
 }
-.letra{
+
+.letra {
     color: black;
 }
+
 .button:hover {
     transform: scale(1.10);
 }
@@ -107,7 +117,7 @@
     margin-left: 258px;
     margin-top: 4px;
     width: 480px;
-}   
+}
 
 .personalinformation {
     color: #000000;
@@ -131,18 +141,29 @@
 
 .group186 .mydetails,
 .group186 .personalinformation {
-  text-align: center;
+    text-align: center;
 }
+
 .iconSize1 {
     width: 20px;
     height: 20px;
     margin-right: 10px;
-    color:black
+    color: black
 }
+
 .button-container-inner {
     display: flex;
     justify-content: flex-end;
     margin-right: 15px;
     position: relative;
-    top: -125px; /* Ajusta el valor según sea necesario */
+    top: -125px;
+    /* Ajusta el valor según sea necesario */
+}
+
+.emergency {
+    color: white;
+}
+
+.emergency:hover {
+    color: black;
 }

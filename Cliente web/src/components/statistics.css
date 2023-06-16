@@ -17,18 +17,26 @@ button.stdst-btn{
 button.stdst-btn:hover{
     transform: scale(1.10);
 }
-
+#btnBack{
+    padding: 12px 80px;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    margin-top: 10px;
+    cursor: pointer;
+}
 
 .charContainer{
     margin-top: 200px;
 }
 
-.charContainer>button{
+.charContainer button{
     display: flex;
     background-color: #707070;
     color: #ffffff;
     padding: 12px 80px;
-    border-radius: 35px;
+    border-radius: 5px;
     font-size: 18px;
     font-weight: bold;
     transition: all 0.3s ease-in-out;

@@ -26,6 +26,43 @@
   font-size: 55px;
   margin: 10px 0 0 0;
 }
+/* Aqui va para cambiar el color del form */
+#title{
+  background-color: white;
+  color:black;
+  border-bottom: 1.5px solid #2A313B;
+}
+#duration{
+  background-color: white;
+  color:black;
+  border-bottom: 1.5px solid #2A313B;
+}
+#sponsor{
+  background-color: white;
+  color:black;
+  border-bottom: 1.5px solid #2A313B;
+}
+#category{
+  background-color: white;
+  color:black;
+  border-bottom: 1.5px solid #2A313B;
+
+}
+#location{
+  background-color: white;
+  color:black;
+  border-bottom: 1.5px solid #2A313B;
+}
+#description{
+  background-color: white;
+  color:black;
+  border-bottom: 1.5px solid #2A313B;
+}
+#date_hour{
+  background-color: white;
+  color:black;
+}
+
 
 .box-save p{
   height: auto;

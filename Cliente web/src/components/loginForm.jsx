@@ -33,7 +33,7 @@ const LoginForm = ({ setUser }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (userEmail === "abc123" && (password === correctPassword || password === newPassword)) {
+        if (userEmail === "bestcode159@gmail.com" && (password === correctPassword || password === newPassword)) {
             notifyGood()
             setError(false);
             setUser(userEmail);

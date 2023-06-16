@@ -35,7 +35,7 @@ const Home = () => {
         <div className='main-container'>
             {/* Aqui esta el menu de navegacion */}
             <header className='header'>
-            <div className='logo'> <Link to="/home">TICKETS</Link></div>
+                <div className='logo'> <Link to="/home">TICKETS</Link></div>
                 <nav className='nav'>
                     <ul className='nav-list'>
                         <li
@@ -86,15 +86,15 @@ const Home = () => {
             {menuOpen && (
                 <div className="menu-container">
                     <ul className="menu-list">
-                        <li><FontAwesomeIcon icon={faXmark} onClick={toggleMenuClose}  id='closeMenu'/></li>
+                        <li><FontAwesomeIcon icon={faXmark} onClick={toggleMenuClose} id='closeMenu' /></li>
                         <li>Dashboard</li>
                         <Link><li>
-                            <FontAwesomeIcon icon={faTicketSimple} className='iconSize'/>
+                            <FontAwesomeIcon icon={faTicketSimple} className='iconSize' />
                             Resume
-                            </li></Link>
+                        </li></Link>
                         <Link to="/transfer" className='colorLink'>
                             <li>
-                                <FontAwesomeIcon icon={faShuffle} className='iconSize'/>
+                                <FontAwesomeIcon icon={faShuffle} className='iconSize' />
                                 Transfer
                             </li>
                         </Link>
@@ -103,13 +103,14 @@ const Home = () => {
                             Statistic
                         </li></Link>
                         <Link to="/validate" className='colorLink'><li>
-                            <FontAwesomeIcon icon={faQrcode} className='iconSize'/>
+                            <FontAwesomeIcon icon={faQrcode} className='iconSize' />
                             Validate
                         </li></Link>
                         <Link to="/settings" className='colorLink'><li>
-                            <FontAwesomeIcon icon={faGears} className='iconSize'/>
+                            <FontAwesomeIcon icon={faGears} className='iconSize' />
                             Settings
-                        </li></Link>
+                        </li>
+                        </Link>
                         <Link to="/"><button>LogOut</button></Link>
                     </ul>
                 </div>

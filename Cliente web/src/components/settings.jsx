@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faCartArrowDown } from '@fortawesome/free-solid-svg-icons';
@@ -14,13 +14,12 @@ import { faLock } from '@fortawesome/free-solid-svg-icons';
 import { faScrewdriverWrench } from '@fortawesome/free-solid-svg-icons';
 import { faListCheck } from '@fortawesome/free-solid-svg-icons';
 import "./setting.css"
+
 //import { Menu } from 'antd';
 function Settings() {
     // Definicion de variables para Header y menu lateral
     const [menuOpen, setMenuOpen] = useState(false);
     const [activeOption, setActiveOption] = useState('barsI');
-    // Definicion de variables para manejo de transferencia
-    const [transfer, setTransfer] = useState(0);
 
     // funciones para Header y menu lateral
     const handleOptionHover = (option) => {
@@ -35,11 +34,25 @@ function Settings() {
         setMenuOpen(false);
     }
 
+    //Funcion que nos permite manejar el cambio de vista
+    const navigate = useNavigate();
+    const [active, setActive] = useState(false);
+
+    const handleButtonClick = () => {
+        if (active) {
+            navigate('/home');
+        } else {
+            navigate('/emergency');
+        }
+    }
+
+
+
 
     return (<>
         {/* Aqui esta el menu de navegacion */}
         <header className='header'>
-        <div className='logo'> <Link to="/home">TICKETS</Link></div>
+            <div className='logo'> <Link to="/home">TICKETS</Link></div>
             <nav className='nav'>
                 <ul className='nav-list'>
                     <li
@@ -146,7 +159,7 @@ function Settings() {
                 </div>
             </div>
             <div className="button-container">
-                <button class="button" id='btnChange'>
+                <button className="button" id='btnChange'>
                     <Link to="/changePassword" className='letra'><FontAwesomeIcon icon={faLock} className='iconSize1' /> Change Password</Link>
                 </button>
                 <div className='button' id='btnMaintance'>
@@ -154,18 +167,21 @@ function Settings() {
                     Maintenance
 
                 </div>
-                <button class="button" id='btnManage'>
+                <button className="button" id='btnManage'>
                     <Link to="/managePermision" className='letra'><FontAwesomeIcon icon={faListCheck} className='iconSize1' /> Manage Permissions</Link>
                 </button>
             </div>
             <div className="button-container-inner">
-                <button class="button-active">
-                    Active
+                {/* <Link to={active ? "/emergency" : "/home"} className='emergency'>
+                    
+                </Link> */}
+                <button className={`button-active ${active ? 'active' : 'inactive'}`} onClick={handleButtonClick}>
+                    {active ? "active" : "inactive"}
                 </button>
             </div>
         </div>
 
-        
+
     </>)
 
 
