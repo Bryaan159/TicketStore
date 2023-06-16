@@ -313,16 +313,16 @@ body {
 */
 
 @media screen and (max-width: 768px) {
+    body{
+        display: block;
+    }
     .container{
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(1, 1fr);
     }
     .header{
         position: initial;
-    }
-    .nav{
-        position: absolute;
-        width: 200px;
-        height: 200px;
+        padding-top: 0;
+        justify-content: space-around;
     }
     .nav-list{
         display: contents;
@@ -330,5 +330,30 @@ body {
     .sectionCards{
         margin-top: 10px;
     }
-
+}
+/* MOVIL: 425PX */
+@media screen and (max-width: 425px) {
+    .container{
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .header{
+        position: initial;
+        padding-top: 0;
+        justify-content: space-around;
+    }
+    .logo{
+        display: none;
+    }
+    .nav-list{
+        display: contents;
+    }
+    .sectionCards{
+        margin-top: 10px;
+    }
+}
+/* MOVIL: 375PX */
+@media screen and (max-width: 375px) {
+    .nav{
+        gap: 0rem;
+    }
 }

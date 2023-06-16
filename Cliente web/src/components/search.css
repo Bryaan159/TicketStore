@@ -1,5 +1,5 @@
 .sectionCards {
-    margin-top: 75px;
+    margin-top: 50px;
     color: #000000;
     display: flex;
     flex-grow: 1;
@@ -76,7 +76,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1;
+    z-index: auto;
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
@@ -118,10 +118,6 @@
     color: black;
 }
 
-.sectionCards {
-    margin-top: 50px;
-}
-
 /*
     APARTADO RESPONSIVE PARA VISTA HOME
     TABLET: 768px x 564px
@@ -129,7 +125,43 @@
 */
 
 @media screen and (max-width: 768px){
+    .sectionCards{
+        margin-top: 0px;
+        flex-direction: column;
+    }
     .container {
         grid-template-columns: repeat(2, 1fr);
+    }
+    .search-container{
+        position: inherit;
+    }
+}
+/* MOVIL: 425PX */
+@media screen and (max-width: 425px) {
+    .container{
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .header{
+        position: initial;
+        padding-top: 10px;
+        justify-content: space-around;
+    }
+    .logo{
+        display: none;
+    }
+    .nav-list{
+        display: contents;
+    }
+    .sectionCards{
+        margin-top: 10px;
+    }
+    .search-input input{
+        width: 350px;
+    }
+}
+/* MOVIL: 375PX */
+@media screen and (max-width: 375px) {
+    .search-input input {
+        width: 300px;
     }
 }

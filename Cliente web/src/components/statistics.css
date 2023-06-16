@@ -143,3 +143,18 @@ button.stdst-btn:hover{
     margin: 25px auto;
     width: 600px;
 }
+
+/*
+    APARTADO RESPONSIVE PARA VISTA HOME
+    TABLET: 768px x 564px
+    MOBILE: 425px x 564px
+*/
+
+@media screen and (max-width: 768px){
+    .main-container{
+        position: unset;
+    }
+    .charContainer{
+        margin-top: 0;
+    }
+}
